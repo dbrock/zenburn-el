@@ -128,8 +128,8 @@ to values."
   (zenburn-define-format-spec))
 
 (eval-after-load 'format-spec
-  (unless (zenburn-format-spec-works-p)
-    (zenburn-define-format-spec)))
+  '(unless (zenburn-format-spec-works-p)
+     (zenburn-define-format-spec)))
 
 (setq-default mode-line-buffer-identification
               (list (propertize "%12b" 'face
