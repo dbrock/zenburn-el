@@ -3,7 +3,7 @@
 
 ;; Author: Daniel Brockman <daniel@brockman.se>
 ;; URL: http://www.brockman.se/software/zenburn/zenburn.el
-;; Updated: 2006-01-29 03:30
+;; Updated: 2006-05-13 16:00
 
 ;; This file is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -444,6 +444,8 @@ static char *gnus-pointer[] = {
        ((t (:inherit font-lock-doc))))
      '(custom-documentation
        ((t (:inherit font-lock-doc))))
+     '(custom-link
+       ((t (:inherit zenburn-yellow :underline t))))
      '(custom-tag
        ((t (:inherit zenburn-primary-2))))
      '(custom-group-tag
@@ -511,8 +513,12 @@ static char *gnus-pointer[] = {
 
      '(rcirc-my-nick ((t (:inherit zenburn-primary-1))))
      '(rcirc-other-nick ((t (:inherit bold))))
-     '(rcirc-server ((t (:inherit zenburn-green))))
+     '(rcirc-bright-nick ((t (:foreground "white" :inherit rcirc-other-nick))))
+     '(rcirc-dim-nick ((t (:inherit font-lock-comment))))
      '(rcirc-nick-in-message ((t (:inherit bold))))
+     '(rcirc-server ((t (:inherit font-lock-comment))))
+     '(rcirc-server-prefix ((t (:inherit font-lock-comment-delimiter))))
+     '(rcirc-timestamp ((t (:inherit font-lock-comment))))
      '(rcirc-prompt ((t (:inherit zenburn-primary-1))))
      '(rcirc-mode-line-nick ((t (:inherit zenburn-primary-1))))
 
