@@ -3,7 +3,7 @@
 
 ;; Author: Daniel Brockman <daniel@brockman.se>
 ;; URL: http://www.brockman.se/software/zenburn/zenburn.el
-;; Updated: 2006-05-13 16:00
+;; Updated: 2006-05-23 21:54
 
 ;; This file is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -55,29 +55,37 @@
 (defvar zenburn-bg "#3f3f3f")
 (defvar zenburn-bg+1 "#4f4f4f")
 (defvar zenburn-bg+2 "#5f5f5f")
-(defvar zenburn-yellow "#f0dfaf")
-(defvar zenburn-yellow-1 "#e0cf9f")
-(defvar zenburn-yellow-2 "#d0bf8f")
-(defvar zenburn-orange "#dfaf8f")
 (defvar zenburn-red+1 "#dca3a3")
 (defvar zenburn-red "#cc9393")
 (defvar zenburn-red-1 "#bc8383")
 (defvar zenburn-red-2 "#ac7373")
 (defvar zenburn-red-3 "#9c6363")
 (defvar zenburn-red-4 "#8c5353")
+(defvar zenburn-orange "#dfaf8f")
+(defvar zenburn-yellow "#f0dfaf")
+(defvar zenburn-yellow-1 "#e0cf9f")
+(defvar zenburn-yellow-2 "#d0bf8f")
 (defvar zenburn-green-1 "#5f7f5f")
 (defvar zenburn-green "#7f9f7f")
 (defvar zenburn-green+1 "#8fb28f")
 (defvar zenburn-green+2 "#9fc59f")
 (defvar zenburn-green+3 "#afd8af")
 (defvar zenburn-green+4 "#bfebbf")
+(defvar zenburn-cyan "#93e0e3")
 (defvar zenburn-blue+1 "#94bff3")
 (defvar zenburn-blue "#8cd0d3")
 (defvar zenburn-blue-1 "#7cb8bb")
 (defvar zenburn-blue-2 "#6ca0a3")
 (defvar zenburn-blue-3 "#5c888b")
 (defvar zenburn-blue-4 "#4c7073")
-(defvar zenburn-cyan "#93e0e3")
+(defvar zenburn-magenta "#dc8cc3")
+
+(eval-after-load 'term
+  '(setq ansi-term-color-vector
+         (vector 'unspecified zenburn-bg
+                 zenburn-red zenburn-green
+                 zenburn-yellow zenburn-blue+1
+                 zenburn-magenta zenburn-cyan)))
 
 (defvar font-lock-pseudo-keyword-face 'font-lock-pseudo-keyword-face)
 (defvar font-lock-operator-face 'font-lock-operator-face)
