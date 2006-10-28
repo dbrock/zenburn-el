@@ -3,7 +3,7 @@
 
 ;; Author: Daniel Brockman <daniel@brockman.se>
 ;; URL: http://www.brockman.se/software/zenburn/zenburn.el
-;; Updated: 2006-05-23 21:54
+;; Updated: 2006-10-27 11:48
 
 ;; This file is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -379,7 +379,7 @@ static char *gnus-pointer[] = {
      `(secondary-selection ((t (:foreground ,zenburn-fg :background "#506070"))))
 
      '(trailing-whitespace ((t (:inherit font-lock-warning))))
-     '(highlight ((t (:inherit font-lock-warning))))
+     '(highlight ((t (:underline t))))
      '(paren ((t (:inherit zenburn-lowlight-1))))
      '(show-paren-mismatch ((t (:inherit font-lock-warning))))
      '(show-paren-match ((t (:inherit font-lock-keyword))))
@@ -428,6 +428,8 @@ static char *gnus-pointer[] = {
      '(calendar-today ((t (:underline nil :inherit zenburn-primary-2))))
      '(diary ((t (:underline nil :inherit zenburn-primary-1))))
      '(holiday ((t (:underline t :inherit zenburn-primary-4))))
+
+     '(bongo-unfilled-seek-bar ((t (:background "#606060"))))
 
      '(change-log-date ((t (:inherit zenburn-blue))))
 
