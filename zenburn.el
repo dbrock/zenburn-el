@@ -3,7 +3,7 @@
 
 ;; Author: Daniel Brockman <daniel@brockman.se>
 ;; URL: http://www.brockman.se/software/zenburn/zenburn.el
-;; Updated: 2006-10-27 11:48
+;; Updated: 2006-11-22 03:20
 
 ;; This file is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -589,15 +589,37 @@ static char *gnus-pointer[] = {
      `(gnus-cite-10 ((t (:foreground ,zenburn-yellow-1))))
      `(gnus-cite-11 ((t (:foreground ,zenburn-yellow))))
 
-     '(gnus-group-mail-1 ((t (:inherit zenburn-primary-1))))
-     '(gnus-group-mail-2 ((t (:inherit zenburn-primary-1))))
-     '(gnus-group-mail-3 ((t (:inherit zenburn-primary-1))))
-     '(gnus-group-mail-1-empty ((t (:inherit default))))
-     '(gnus-group-mail-2-empty ((t (:inherit default))))
-     `(gnus-group-mail-3-empty ((t (:foreground ,zenburn-yellow))))
-     '(gnus-group-news-1-empty ((t (:inherit default))))
-     '(gnus-group-news-2-empty ((t (:inherit default))))
-     '(gnus-group-news-3-empty ((t (:inherit default))))
+     `(gnus-group-news-1-empty ((t (:foreground ,zenburn-yellow))))
+     `(gnus-group-news-2-empty ((t (:foreground ,zenburn-green+3))))
+     `(gnus-group-news-3-empty ((t (:foreground ,zenburn-green+1))))
+     `(gnus-group-news-4-empty ((t (:foreground ,zenburn-blue-2)))) 
+     `(gnus-group-news-5-empty ((t (:foreground ,zenburn-blue-3))))
+     `(gnus-group-news-6-empty ((t (:inherit zenburn-lowlight-1))))
+     `(gnus-group-news-low-empty ((t (:inherit zenburn-lowlight-1))))
+
+     '(gnus-group-mail-1-empty ((t (:inherit gnus-group-news-1-empty))))
+     '(gnus-group-mail-2-empty ((t (:inherit gnus-group-news-2-empty))))
+     '(gnus-group-mail-3-empty ((t (:inherit gnus-group-news-3-empty))))
+     '(gnus-group-mail-4-empty ((t (:inherit gnus-group-news-4-empty))))
+     '(gnus-group-mail-5-empty ((t (:inherit gnus-group-news-5-empty))))
+     '(gnus-group-mail-6-empty ((t (:inherit gnus-group-news-6-empty))))
+     '(gnus-group-mail-low-empty ((t (:inherit gnus-group-news-low-empty))))
+
+     '(gnus-group-news-1 ((t (:bold t :inherit gnus-group-news-1-empty))))
+     '(gnus-group-news-2 ((t (:bold t :inherit gnus-group-news-2-empty))))
+     '(gnus-group-news-3 ((t (:bold t :inherit gnus-group-news-3-empty))))
+     '(gnus-group-news-4 ((t (:bold t :inherit gnus-group-news-4-empty))))
+     '(gnus-group-news-5 ((t (:bold t :inherit gnus-group-news-5-empty))))
+     '(gnus-group-news-6 ((t (:bold t :inherit gnus-group-news-6-empty))))
+     '(gnus-group-news-low ((t (:bold t :inherit gnus-group-news-low-empty))))
+
+     '(gnus-group-mail-1 ((t (:bold t :inherit gnus-group-mail-1-empty))))
+     '(gnus-group-mail-2 ((t (:bold t :inherit gnus-group-mail-2-empty))))
+     '(gnus-group-mail-3 ((t (:bold t :inherit gnus-group-mail-3-empty))))
+     '(gnus-group-mail-4 ((t (:bold t :inherit gnus-group-mail-4-empty))))
+     '(gnus-group-mail-5 ((t (:bold t :inherit gnus-group-mail-5-empty))))
+     '(gnus-group-mail-6 ((t (:bold t :inherit gnus-group-mail-6-empty))))
+     '(gnus-group-mail-low ((t (:bold t :inherit gnus-group-mail-low-empty))))
 
      `(gnus-signature ((t (:foreground ,zenburn-yellow))))
 
