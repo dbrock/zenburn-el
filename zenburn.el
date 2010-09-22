@@ -549,6 +549,14 @@ static char *gnus-pointer[] = {
      '(eshell-ls-special ((t (:inherit zenburn-primary-1))))
      `(eshell-ls-symlink ((t (:foreground ,zenburn-cyan :weight bold))))
 
+     '(elscreen-tab-current-screen
+       ((t (:inherit zenburn-primary-1))))
+     `(elscreen-tab-other-screen
+       ((t (:foreground ,zenburn-yellow :background ,zenburn-green))))
+     
+     '(flyspell-duplicate ((t (:inherit zenburn-primary-1))))
+     '(flyspell-incorrect ((t (:inherit zenburn-primary-2))))
+
      '(highlight-current-line ((t (:inherit zenburn-highlight-subtle))))
 
      '(ibuffer-deletion ((t (:inherit zenburn-primary-2))))
@@ -930,6 +938,8 @@ static char *gnus-pointer[] = {
        diff-index-face
        diff-removed-face
        diff-refine-change-face
+       elscreen-tab-current-screen-face
+       elscreen-tab-other-screen-face
        emms-pbi-current-face
        emms-pbi-mark-marked-face
        emms-pbi-song-face
@@ -970,6 +980,8 @@ static char *gnus-pointer[] = {
        fancy-widget-field-face
        fancy-widget-inactive-face
        fancy-widget-single-line-field-face
+       flyspell-duplicate-face
+       flyspell-incorrect-face
        font-latex-bold-face
        font-latex-sedate-face
        font-latex-title-4-face
