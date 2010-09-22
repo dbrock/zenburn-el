@@ -1,12 +1,9 @@
 ;;; zenburn.el --- just some alien fruit salad to keep you in the zone
-;; Copyright (C) 2003, 2004, 2005, 2006  Daniel Brockman
+;; Copyright (C) 2003, 2004, 2005, 2006, 2010  Daniel Brockman
 ;; Copyright (C) 2009  Adrian C., Bastien Guerry
 
 ;; Author: Daniel Brockman <daniel@brockman.se>
-;; URL: http://www.brockman.se/software/zenburn/zenburn.el
-;; Updated: 2009-07-08 05:27
-
-;; Adrian C. and Bastien Guerry added org-mode faces.
+;; URL: http://github.com/dbrock/zenburn-el
 
 ;; This file is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -34,6 +31,8 @@
 
 ;; Thanks to Jani Nurminen, who created the original zenburn color
 ;; theme for vim.  I'm just copying him. :-)
+
+;; Thanks to Adrian C. and Bastien Guerry for org-mode faces.
 
 ;;; Short-Term Wishlist:
 
