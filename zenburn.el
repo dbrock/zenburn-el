@@ -254,6 +254,7 @@ static char *gnus-pointer[] = {
      `(zenburn-blue-2 ((t (:foreground ,zenburn-blue-2))))
      `(zenburn-blue-3 ((t (:foreground ,zenburn-blue-3))))
      `(zenburn-blue-4 ((t (:foreground ,zenburn-blue-4))))
+     `(zenburn-magenta ((t (:foreground ,zenburn-magenta))))
 
      '(zenburn-title ((t (:inherit variable-pitch :weight bold))))
 
@@ -849,6 +850,26 @@ static char *gnus-pointer[] = {
      '(speedbar-tag ((t (:inherit font-lock-function-name))))
      '(speedbar-highlight ((t (:underline t))))
 
+     '(sr-active-path-face ((t (:inherit zenburn-primary-1))))
+     '(sr-alt-marked-dir-face ((t (:inherit zenburn-highlight-subtle :bold))))
+     '(sr-alt-marked-file-face ((t (:inherit zenburn-highlight-subtle))))
+     '(sr-broken-link-face ((t (:inherit zenburn-primary-1))))
+     '(sr-clex-hotchar-face ((t (:inherit zenburn-primary-1))))
+     '(sr-compressed-face ((t (:inherit zenburn-primary-1))))
+     '(sr-directory-face ((t (:inherit zenburn-blue))))
+     '(sr-editing-path-face ((t (:inherit zenburn-primary-1))))
+     '(sr-encrypted-face ((t (:inherit zenburn-orange))))
+     '(sr-highlight-path-face ((t (:inherit zenburn-primary-1))))
+     '(sr-html-face ((t (:inherit zenburn-green))))
+     '(sr-log-face ((t (:inherit zenburn-magenta))))
+     `(sr-marked-dir-face ((t (:inherit zenburn-highlight-alerting :bold))))
+     `(sr-marked-file-face ((t (:inherit zenburn-highlight-alerting))))
+     '(sr-packaged-face ((t (:inherit zenburn-primary-1))))
+     '(sr-passive-path-face ((t (:inherit zenburn-primary-1))))
+     '(sr-symlink-directory-face ((t (:inherit zenburn-blue))))
+     '(sr-symlink-face ((t (:inherit zenburn-blue-2))))
+     '(sr-xml-face ((t (:inherit zenburn-green-1))))
+
      '(strokes-char ((t (:inherit font-lock-keyword))))
 
      '(todoo-item-header
@@ -1151,6 +1172,25 @@ static char *gnus-pointer[] = {
        speedbar-file-face
        speedbar-highlight-face
        speedbar-tag-face
+       sr-active-path-face
+       sr-alt-marked-dir-face
+       sr-alt-marked-file-face
+       sr-broken-link-face
+       sr-clex-hotchar-face
+       sr-compressed-face
+       sr-directory-face
+       sr-editing-path-face
+       sr-encrypted-face
+       sr-highlight-path-face
+       sr-html-face
+       sr-log-face
+       sr-marked-dir-face
+       sr-marked-file-face
+       sr-packaged-face
+       sr-passive-path-face
+       sr-symlink-directory-face
+       sr-symlink-face
+       sr-xml-face
        strokes-char-face
        todoo-item-assigned-header-face
        todoo-item-header-face
