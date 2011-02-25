@@ -57,58 +57,8 @@
 (defvar zenburn-blue-4 "#4c7073")
 (defvar zenburn-magenta "#dc8cc3")
 
-(eval-after-load 'term
-  '(setq ansi-term-color-vector
-         (vector 'unspecified zenburn-bg
-                 zenburn-red zenburn-green
-                 zenburn-yellow zenburn-blue+1
-                 zenburn-magenta zenburn-cyan
-                 ;; XXX: Not sure why this is sometimes needed.
-                 "white")))
-
 (defvar font-lock-pseudo-keyword-face 'font-lock-pseudo-keyword-face)
 (defvar font-lock-operator-face 'font-lock-operator-face)
-
-(setq-default erc-mode-line-format
-              (concat (propertize "%S" 'face
-                                  (list :weight 'bold
-                                        :foreground zenburn-yellow))
-                      " %a"))
-
-(setq gnus-logo-colors `(,zenburn-bg+2 ,zenburn-bg+1)
-      gnus-mode-line-image-cache
-      '(image :type xpm :ascent center :data "/* XPM */
-static char *gnus-pointer[] = {
-/* width height num_colors chars_per_pixel */
-\"    18    11        2            1\",
-/* colors */
-\". c #dcdccc\",
-\"# c None s None\",
-/* pixels */
-\"######..##..######\",
-\"#####........#####\",
-\"#.##.##..##...####\",
-\"#...####.###...##.\",
-\"#..###.######.....\",
-\"#####.########...#\",
-\"###########.######\",
-\"####.###.#..######\",
-\"######..###.######\",
-\"###....####.######\",
-\"###..######.######\"};"))
-
-(defun zenburn-make-face-alias-clauses (alias-symbols)
-  (let (clauses)
-    (dolist (alias-symbol alias-symbols clauses)
-      (let ((alias-name (symbol-name alias-symbol)))
-        (if (not (string-match "-face" alias-name))
-            (error "Invalid face alias: %s" alias-name)
-          (let ((target-name (replace-regexp-in-string
-                              ".*\\(-face\\)" ""
-                              alias-name nil nil 1)))
-            (push `(,(intern alias-name)
-                    ((t (:inherit ,(intern target-name)))))
-                  clauses)))))))
 
 ;;;###autoload
 (defun color-theme-zenburn ()
@@ -1148,6 +1098,56 @@ static char *gnus-pointer[] = {
        widget-inactive-face
        widget-single-line-field-face))
     )))
+
+(defun zenburn-make-face-alias-clauses (alias-symbols)
+  (let (clauses)
+    (dolist (alias-symbol alias-symbols clauses)
+      (let ((alias-name (symbol-name alias-symbol)))
+        (if (not (string-match "-face" alias-name))
+            (error "Invalid face alias: %s" alias-name)
+          (let ((target-name (replace-regexp-in-string
+                              ".*\\(-face\\)" ""
+                              alias-name nil nil 1)))
+            (push `(,(intern alias-name)
+                    ((t (:inherit ,(intern target-name)))))
+                  clauses)))))))
+
+(eval-after-load 'term
+  '(setq ansi-term-color-vector
+         (vector 'unspecified zenburn-bg
+                 zenburn-red zenburn-green
+                 zenburn-yellow zenburn-blue+1
+                 zenburn-magenta zenburn-cyan
+                 ;; XXX: Not sure why this is sometimes needed.
+                 "white")))
+
+(setq-default erc-mode-line-format
+              (concat (propertize "%S" 'face
+                                  (list :weight 'bold
+                                        :foreground zenburn-yellow))
+                      " %a"))
+
+(setq gnus-logo-colors `(,zenburn-bg+2 ,zenburn-bg+1)
+      gnus-mode-line-image-cache
+      '(image :type xpm :ascent center :data "/* XPM */
+static char *gnus-pointer[] = {
+/* width height num_colors chars_per_pixel */
+\"    18    11        2            1\",
+/* colors */
+\". c #dcdccc\",
+\"# c None s None\",
+/* pixels */
+\"######..##..######\",
+\"#####........#####\",
+\"#.##.##..##...####\",
+\"#...####.###...##.\",
+\"#..###.######.....\",
+\"#####.########...#\",
+\"###########.######\",
+\"####.###.#..######\",
+\"######..###.######\",
+\"###....####.######\",
+\"###..######.######\"};"))
 
 (defalias 'zenburn #'color-theme-zenburn)
 
