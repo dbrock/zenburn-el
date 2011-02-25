@@ -144,7 +144,7 @@ to values."
      (zenburn-define-format-spec)))
 
 (setq-default erc-mode-line-format
-              (concat (propertize "%t" 'face
+              (concat (propertize "%S" 'face
                                   (list :weight 'bold
                                         :foreground zenburn-yellow))
                       " %a"))
