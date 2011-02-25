@@ -22,15 +22,6 @@
 ;; Software Foundation, 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;; Commentary:
-
-;; Some packages ship with broken implementations of `format-spec';
-;; for example, stable versions of TRAMP and ERC do this.  To fix
-;; this, you can put the following at the end of your ~/.emacs:
-;;
-;;   (unless (zenburn-format-spec-works-p)
-;;     (zenburn-define-format-spec))
-
 ;;; Code:
 
 (require 'color-theme)
@@ -77,55 +68,6 @@
 
 (defvar font-lock-pseudo-keyword-face 'font-lock-pseudo-keyword-face)
 (defvar font-lock-operator-face 'font-lock-operator-face)
-
-(defun zenburn-format-spec-works-p ()
-  (and (fboundp 'format-spec)
-       (= (next-property-change
-           0 (format-spec #("<%x>" 0 4 (face (:weight bold)))
-                          '((?x . "foo"))) 4) 4)))
-
-(defun zenburn-format-spec (format specification)
-  "Return a string based on FORMAT and SPECIFICATION.
-FORMAT is a string containing `format'-like specs like \"bash %u %k\",
-while SPECIFICATION is an alist mapping from format spec characters
-to values."
-  (with-temp-buffer
-    (insert format)
-    (goto-char (point-min))
-    (while (search-forward "%" nil t)
-      (cond
-       ;; Quoted percent sign.
-       ((eq (char-after) ?%)
-        (delete-char 1))
-       ;; Valid format spec.
-       ((looking-at "\\([-0-9.]*\\)\\([a-zA-Z]\\)")
-        (let* ((num (match-string 1))
-               (spec (string-to-char (match-string 2)))
-               (val (cdr (assq spec specification))))
-          (unless val
-            (error "Invalid format character: %s" spec))
-          (let ((text (format (concat "%" num "s") val)))
-            (insert-and-inherit text)
-            ;; Delete the specifier body.
-            (delete-region (+ (match-beginning 0) (length text))
-                           (+ (match-end 0) (length text)))
-            ;; Delete the percent sign.
-            (delete-region (1- (match-beginning 0)) (match-beginning 0)))))
-       ;; Signal an error on bogus format strings.
-       (t
-        (error "Invalid format string"))))
-    (buffer-string)))
-
-(defun zenburn-define-format-spec ()
-  (interactive)
-  (fset 'format-spec #'zenburn-format-spec))
-
-(unless (zenburn-format-spec-works-p)
-  (zenburn-define-format-spec))
-
-(eval-after-load 'format-spec
-  '(unless (zenburn-format-spec-works-p)
-     (zenburn-define-format-spec)))
 
 (setq-default erc-mode-line-format
               (concat (propertize "%S" 'face
