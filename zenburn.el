@@ -47,6 +47,7 @@
 (defvar zenburn-red-3 "#9c6363")
 (defvar zenburn-red-4 "#8c5353")
 (defvar zenburn-orange "#dfaf8f")
+(defvar zenburn-orange+1 "#ffc9a4")
 (defvar zenburn-yellow "#f0dfaf")
 (defvar zenburn-yellow-1 "#e0cf9f")
 (defvar zenburn-yellow-2 "#d0bf8f")
@@ -766,41 +767,39 @@ static char *gnus-pointer[] = {
      '(nxml-namespace-attribute-colon
        ((t (:inherit nxml-attribute-colon))))
 
-     '(org-agenda-date-today ((t (:foreground "white" 
-                               :slant italic :weight bold))) t)       ;; white
-     '(org-agenda-structure ((t (:inherit font-lock-comment-face))))  ;; zenburn-green
-     '(org-archived ((t (:foreground "#8f8f8f"))))                    ;; zenburn-bg slight lighter
-     '(org-column ((t (:height 98 :family "DejaVu Sans Mono"))))      ;; n/a
-     '(org-checkbox ((t (:background "#5f5f5f" :foreground "white"    ;; zenburn-fg on zenburn-bg+2
-                      :box (:line-width 1 :style released-button))))) ;;   - turn checkboxes into buttons
-     '(org-date ((t (:foreground "#8cd0d3" :underline t))))           ;; zenburn-blue
-     '(org-deadline-announce ((t (:foreground "#bc8383"))))           ;; zenburn-red-1
-     '(org-done ((t (:bold t :weight bold :foreground "#afd8af"))))   ;; zenburn-green+3
-     '(org-formula ((t (:foreground "#d0bf8f"))))                     ;; zenburn-yellow-2
-     '(org-headline-done ((t (:foreground "#afd8af"))))               ;; zenburn-green+3
-     '(org-hide ((t (:foreground "#282828"))))                        ;; zenburn-bg slight darker
-     '(org-level-1 ((t (:foreground "#dfaf8f"))))                     ;; zenburn-orange
-     '(org-level-2 ((t (:foreground "#f0dfaf"))))                     ;; zenburn-yellow
-     '(org-level-3 ((t (:foreground "#8cd0d3"))))                     ;; zenburn-blue
-     '(org-level-4 ((t (:foreground "#93e0e3"))))                     ;; zenburn-cyan
-     '(org-level-5 ((t (:foreground "#7cb8bb"))))                     ;; zenburn-blue-1
-     '(org-level-6 ((t (:foreground "#6ca0a3"))))                     ;; zenburn-blue-2
-     '(org-level-7 ((t (:foreground "#5c888b"))))                     ;; zenburn-blue-3
-     '(org-level-8 ((t (:foreground "#4c7073"))))                     ;; zenburn-blue-4
-     '(org-link ((t (:foreground "#d0bf8f" :underline t))))           ;; zenburn-yellow-2
-     ;'(org-priority faces                                            TODO
-     '(org-scheduled ((t (:foreground "#bfebbf"))))                   ;; zenburn-green+4
-     '(org-scheduled-previously ((t (:foreground "#8c5353"))))        ;; zenburn-red-4
-     '(org-scheduled-today ((t (:foreground "#94bff3"))))             ;; zenburn-blue+1
-     '(org-special-keyword ((t (:foreground "#e0cf9f"))))             ;; zenburn-yellow-1
-     '(org-table ((t (:foreground "#9fc59f"))))                       ;; zenburn-green+2
-     '(org-tag ((t (:bold t :weight bold))))                          ;; n/a
-     '(org-time-grid ((t (:foreground "#ffc9a4"))))                   ;; zenburn-orange slight lighter
-     '(org-todo ((t (:bold t :foreground "#cc9393" :weight bold))))   ;; zenburn-red
-     '(org-upcoming-deadline ((t (:inherit font-lock-keyword-face)))) ;; zenburn-fg
-     '(org-warning ((t (:bold t :foreground "#cc9393" :weight bold))));; zenburn-red
+     '(org-agenda-date-today
+       ((t (:foreground "white" :slant italic :weight bold))) t)
+     '(org-agenda-structure
+       ((t (:inherit font-lock-comment-face))))
+     '(org-archived ((t (:foreground "#8f8f8f"))))
+     `(org-checkbox ((t (:background ,zenburn-bg+2 :foreground "white"
+                         :box (:line-width 1 :style released-button)))))
+     `(org-date ((t (:foreground ,zenburn-blue :underline t))))
+     `(org-deadline-announce ((t (:foreground ,zenburn-red-1))))
+     `(org-done ((t (:bold t :weight bold :foreground ,zenburn-green+3))))
+     `(org-formula ((t (:foreground ,zenburn-yellow-2))))
+     `(org-headline-done ((t (:foreground ,zenburn-green+3))))
+     `(org-hide ((t (:foreground ,zenburn-bg-1))))
+     `(org-level-1 ((t (:foreground ,zenburn-orange))))
+     `(org-level-2 ((t (:foreground ,zenburn-yellow))))
+     `(org-level-3 ((t (:foreground ,zenburn-blue))))
+     `(org-level-4 ((t (:foreground ,zenburn-cyan))))
+     `(org-level-5 ((t (:foreground ,zenburn-blue-1))))
+     `(org-level-6 ((t (:foreground ,zenburn-blue-2))))
+     `(org-level-7 ((t (:foreground ,zenburn-blue-3))))
+     `(org-level-8 ((t (:foreground ,zenburn-blue-4))))
+     `(org-link ((t (:foreground ,zenburn-yellow-2 :underline t))))
+     `(org-scheduled ((t (:foreground ,zenburn-green+4))))
+     `(org-scheduled-previously ((t (:foreground ,zenburn-red-4))))
+     `(org-scheduled-today ((t (:foreground ,zenburn-blue+1))))
+     `(org-special-keyword ((t (:foreground ,zenburn-yellow-1))))
+     `(org-table ((t (:foreground ,zenburn-green+2))))
+     '(org-tag ((t (:bold t :weight bold))))
+     `(org-time-grid ((t (:foreground ,zenburn-orange+1))))
+     `(org-todo ((t (:bold t :foreground ,zenburn-red :weight bold))))
+     '(org-upcoming-deadline ((t (:inherit font-lock-keyword-face))))
+     `(org-warning ((t (:bold t :foreground ,zenburn-red :weight bold))))
 
-     ;; TODO
      '(outline-8 ((t (:inherit default))))
      '(outline-7 ((t (:inherit outline-8 :height 1.0))))
      '(outline-6 ((t (:inherit outline-7 :height 1.0))))
@@ -818,25 +817,44 @@ static char *gnus-pointer[] = {
      '(speedbar-tag ((t (:inherit font-lock-function-name))))
      '(speedbar-highlight ((t (:underline t))))
 
-     '(sr-active-path-face ((t (:inherit zenburn-primary-1))))
-     '(sr-alt-marked-dir-face ((t (:inherit zenburn-highlight-subtle :bold))))
-     '(sr-alt-marked-file-face ((t (:inherit zenburn-highlight-subtle))))
-     '(sr-broken-link-face ((t (:inherit zenburn-primary-1))))
-     '(sr-clex-hotchar-face ((t (:inherit zenburn-primary-1))))
-     '(sr-compressed-face ((t (:inherit zenburn-primary-1))))
-     '(sr-directory-face ((t (:inherit zenburn-blue))))
-     '(sr-editing-path-face ((t (:inherit zenburn-primary-1))))
-     '(sr-encrypted-face ((t (:inherit zenburn-orange))))
-     '(sr-highlight-path-face ((t (:inherit zenburn-primary-1))))
-     '(sr-html-face ((t (:inherit zenburn-green))))
-     '(sr-log-face ((t (:inherit zenburn-magenta))))
-     `(sr-marked-dir-face ((t (:inherit zenburn-highlight-alerting :bold))))
-     `(sr-marked-file-face ((t (:inherit zenburn-highlight-alerting))))
-     '(sr-packaged-face ((t (:inherit zenburn-primary-1))))
-     '(sr-passive-path-face ((t (:inherit zenburn-primary-1))))
-     '(sr-symlink-directory-face ((t (:inherit zenburn-blue))))
-     '(sr-symlink-face ((t (:inherit zenburn-blue-2))))
-     '(sr-xml-face ((t (:inherit zenburn-green-1))))
+     '(sr-active-path-face
+       ((t (:inherit zenburn-primary-1))))
+     '(sr-alt-marked-dir-face
+       ((t (:inherit zenburn-highlight-subtle :bold))))
+     '(sr-alt-marked-file-face
+       ((t (:inherit zenburn-highlight-subtle))))
+     '(sr-broken-link-face
+       ((t (:inherit zenburn-primary-1))))
+     '(sr-clex-hotchar-face
+       ((t (:inherit zenburn-primary-1))))
+     '(sr-compressed-face
+       ((t (:inherit zenburn-primary-1))))
+     '(sr-directory-face
+       ((t (:inherit zenburn-blue))))
+     '(sr-editing-path-face
+       ((t (:inherit zenburn-primary-1))))
+     '(sr-encrypted-face
+       ((t (:inherit zenburn-orange))))
+     '(sr-highlight-path-face
+       ((t (:inherit zenburn-primary-1))))
+     '(sr-html-face
+       ((t (:inherit zenburn-green))))
+     '(sr-log-face
+       ((t (:inherit zenburn-magenta))))
+     '(sr-marked-dir-face
+       ((t (:inherit zenburn-highlight-alerting :bold))))
+     '(sr-marked-file-face
+       ((t (:inherit zenburn-highlight-alerting))))
+     '(sr-packaged-face
+       ((t (:inherit zenburn-primary-1))))
+     '(sr-passive-path-face
+       ((t (:inherit zenburn-primary-1))))
+     '(sr-symlink-directory-face
+       ((t (:inherit zenburn-blue))))
+     '(sr-symlink-face
+       ((t (:inherit zenburn-blue-2))))
+     '(sr-xml-face
+       ((t (:inherit zenburn-green-1))))
 
      '(strokes-char ((t (:inherit font-lock-keyword))))
 
