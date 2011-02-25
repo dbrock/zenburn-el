@@ -143,10 +143,6 @@ to values."
   '(unless (zenburn-format-spec-works-p)
      (zenburn-define-format-spec)))
 
-(setq-default mode-line-buffer-identification
-              (list (propertize "%12b" 'face
-                                (list :weight 'bold
-                                      :foreground zenburn-yellow))))
 (setq-default erc-mode-line-format
               (concat (propertize "%t" 'face
                                   (list :weight 'bold
@@ -376,6 +372,7 @@ static char *gnus-pointer[] = {
                       :box (:color "#1e2320" :line-width 2)))))
      '(mode-line-inactive ((t (:background "#2e3330" :foreground "#88b090"
                                :box (:color "#2e3330" :line-width 2)))))
+     `(mode-line-buffer-id ((t (:foreground ,zenburn-yellow :weight bold))))
      `(minibuffer-prompt ((t (:foreground ,zenburn-yellow))))
      `(Buffer-menu-buffer ((t (:inherit zenburn-primary-1))))
 
