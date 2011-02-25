@@ -1121,12 +1121,6 @@
                  ;; XXX: Not sure why this is sometimes needed.
                  "white")))
 
-(setq-default erc-mode-line-format
-              (concat (propertize "%S" 'face
-                                  (list :weight 'bold
-                                        :foreground zenburn-yellow))
-                      " %a"))
-
 (setq gnus-logo-colors `(,zenburn-bg+2 ,zenburn-bg+1)
       gnus-mode-line-image-cache
       '(image :type xpm :ascent center :data "/* XPM */
