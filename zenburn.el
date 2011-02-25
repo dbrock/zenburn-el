@@ -899,6 +899,8 @@ static char *gnus-pointer[] = {
      '(w3m-form
        ((t (:inherit widget-field)))))
 
+    ;; XXX: Updating this list is very tedious.
+    ;;      Are these aliases still necessary?
     (zenburn-make-face-alias-clauses
      '(Buffer-menu-buffer-face
        apt-utils-broken-face
