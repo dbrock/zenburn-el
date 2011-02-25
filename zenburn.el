@@ -1096,34 +1096,21 @@
        widget-documentation-face
        widget-field-face
        widget-inactive-face
-       widget-single-line-field-face))
-    )))
+       widget-single-line-field-face
+       ))))
 
-(defun zenburn-make-face-alias-clauses (alias-symbols)
-  (let (clauses)
-    (dolist (alias-symbol alias-symbols clauses)
-      (let ((alias-name (symbol-name alias-symbol)))
-        (if (not (string-match "-face" alias-name))
-            (error "Invalid face alias: %s" alias-name)
-          (let ((target-name (replace-regexp-in-string
-                              ".*\\(-face\\)" ""
-                              alias-name nil nil 1)))
-            (push `(,(intern alias-name)
-                    ((t (:inherit ,(intern target-name)))))
-                  clauses)))))))
+  (eval-after-load 'term
+    '(setq ansi-term-color-vector
+           (vector 'unspecified zenburn-bg
+                   zenburn-red zenburn-green
+                   zenburn-yellow zenburn-blue+1
+                   zenburn-magenta zenburn-cyan
+                   ;; XXX: Not sure why this is sometimes needed.
+                   "white")))
 
-(eval-after-load 'term
-  '(setq ansi-term-color-vector
-         (vector 'unspecified zenburn-bg
-                 zenburn-red zenburn-green
-                 zenburn-yellow zenburn-blue+1
-                 zenburn-magenta zenburn-cyan
-                 ;; XXX: Not sure why this is sometimes needed.
-                 "white")))
-
-(setq gnus-logo-colors `(,zenburn-bg+2 ,zenburn-bg+1)
-      gnus-mode-line-image-cache
-      '(image :type xpm :ascent center :data "/* XPM */
+  (setq gnus-logo-colors `(,zenburn-bg+2 ,zenburn-bg+1)
+        gnus-mode-line-image-cache
+        '(image :type xpm :ascent center :data "/* XPM */
 static char *gnus-pointer[] = {
 /* width height num_colors chars_per_pixel */
 \"    18    11        2            1\",
@@ -1141,7 +1128,20 @@ static char *gnus-pointer[] = {
 \"####.###.#..######\",
 \"######..###.######\",
 \"###....####.######\",
-\"###..######.######\"};"))
+\"###..######.######\"};")))
+
+(defun zenburn-make-face-alias-clauses (alias-symbols)
+  (let (clauses)
+    (dolist (alias-symbol alias-symbols clauses)
+      (let ((alias-name (symbol-name alias-symbol)))
+        (if (not (string-match "-face" alias-name))
+            (error "Invalid face alias: %s" alias-name)
+          (let ((target-name (replace-regexp-in-string
+                              ".*\\(-face\\)" ""
+                              alias-name nil nil 1)))
+            (push `(,(intern alias-name)
+                    ((t (:inherit ,(intern target-name)))))
+                  clauses)))))))
 
 (defalias 'zenburn #'color-theme-zenburn)
 
