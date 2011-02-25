@@ -1,9 +1,11 @@
 ;;; zenburn.el --- just some alien fruit salad to keep you in the zone
-;; Copyright (C) 2003, 2004, 2005, 2006, 2010  Daniel Brockman
+;; Copyright (C) 2003, 2004, 2005, 2006, 2010, 2011  Daniel Brockman
 ;; Copyright (C) 2009  Adrian C., Bastien Guerry
 
 ;; Author: Daniel Brockman <daniel@brockman.se>
 ;; URL: http://github.com/dbrock/zenburn-el
+
+;; Jani Nurminen created the original Zenburn for Vim.
 
 ;; This file is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
@@ -25,35 +27,16 @@
 ;; Some packages ship with broken implementations of `format-spec';
 ;; for example, stable versions of TRAMP and ERC do this.  To fix
 ;; this, you can put the following at the end of your ~/.emacs:
-
+;;
 ;;   (unless (zenburn-format-spec-works-p)
 ;;     (zenburn-define-format-spec))
-
-;; Thanks to Jani Nurminen, who created the original zenburn color
-;; theme for vim.  I'm just copying him. :-)
-
-;; Thanks to Adrian C. and Bastien Guerry for org-mode faces.
-
-;;; Short-Term Wishlist:
-
-;; Theme the ansi-term faces `term-red', etc., and the ERC faces
-;; `fg:erc-color-face1', etc.
-
-;; Theme `gnus-server-offline-face', `gnus-server-opened-face', and
-;; `gnus-server-denied-face'.  First, find out what they hell they do.
-
-;; Theme `gnus-emphasis-highlight-words' after finding out what it
-;; does.
-
-;; Theme `emms-stream-name-face' and `emms-stream-url-face'.
-
-;; Theme `ido-indicator-face'.
 
 ;;; Code:
 
 (require 'color-theme)
 
 (defvar zenburn-fg "#dcdccc")
+(defvar zenburn-bg-1 "#282828")
 (defvar zenburn-bg "#3f3f3f")
 (defvar zenburn-bg+1 "#4f4f4f")
 (defvar zenburn-bg+2 "#5f5f5f")
@@ -214,7 +197,6 @@ static char *gnus-pointer[] = {
      '(fixed-pitch ((t (:weight bold))))
      '(italic ((t (:slant italic))))
      '(underline ((t (:underline t))))
-     ;; '(variable-pitch ((t (:font "-*-utopia-regular-r-*-*-12-*-*-*-*-*-*-*"))))
 
      `(zenburn-background-1 ((t (:background ,zenburn-bg+1))))
      `(zenburn-background-2 ((t (:background ,zenburn-bg+2))))
@@ -289,12 +271,12 @@ static char *gnus-pointer[] = {
      '(term-default-bg-inv ((t (nil))))
      '(term-default-fg ((t (nil))))
      '(term-default-fg-inv ((t (nil))))
-     '(term-invisible ((t (nil)))) ;; FIXME: Security risk?
+     '(term-invisible ((t (nil)))) ;; XXX: Security risk?
      '(term-invisible-inv  ((t (nil))))
      '(term-bold ((t (:weight bold))))
      '(term-underline ((t (:underline t))))
 
-     ;; FIXME: Map these to ansi-term's faces (`term-red', etc.).
+     ;; XXX: Map these to ansi-term's faces (`term-red', etc.)?
      '(zenburn-term-dark-gray      ((t (:foreground "#709080"))))
      '(zenburn-term-light-blue     ((t (:foreground "#94bff3"))))
      '(zenburn-term-light-cyan     ((t (:foreground "#93e0e3"))))
@@ -377,7 +359,8 @@ static char *gnus-pointer[] = {
      `(Buffer-menu-buffer ((t (:inherit zenburn-primary-1))))
 
      '(region ((t (:foreground "#71d3b4" :background "#233323"))))
-     `(secondary-selection ((t (:foreground ,zenburn-fg :background "#506070"))))
+     `(secondary-selection
+       ((t (:foreground ,zenburn-fg :background "#506070"))))
 
      '(trailing-whitespace ((t (:inherit font-lock-warning))))
      '(highlight ((t (:underline t))))
@@ -440,7 +423,6 @@ static char *gnus-pointer[] = {
      '(compilation-info ((t (:inherit zenburn-primary-1))))
      '(compilation-warning ((t (:inherit font-lock-warning))))
 
-     ;; TODO
      '(cua-rectangle ((t (:inherit region))))
 
      '(custom-button
@@ -525,7 +507,8 @@ static char *gnus-pointer[] = {
 
      '(rcirc-my-nick ((t (:inherit zenburn-primary-1))))
      '(rcirc-other-nick ((t (:inherit bold))))
-     '(rcirc-bright-nick ((t (:foreground "white" :inherit rcirc-other-nick))))
+     '(rcirc-bright-nick
+       ((t (:foreground "white" :inherit rcirc-other-nick))))
      '(rcirc-dim-nick ((t (:inherit font-lock-comment))))
      '(rcirc-nick-in-message ((t (:inherit bold))))
      '(rcirc-server ((t (:inherit font-lock-comment))))
@@ -562,7 +545,6 @@ static char *gnus-pointer[] = {
      '(ibuffer-help-buffer ((t (:inherit font-lock-comment))))
 
      '(message-cited-text ((t (:inherit font-lock-comment))))
-     ;;`(message-cited-text ((t (:foreground ,zenburn-blue))))
      '(message-header-name ((t (:inherit zenburn-green+1))))
      '(message-header-other ((t (:inherit zenburn-green))))
      '(message-header-to ((t (:inherit zenburn-primary-1))))
@@ -582,14 +564,9 @@ static char *gnus-pointer[] = {
 
      `(gnus-x-face ((t (:background ,zenburn-fg :foreground ,zenburn-bg))))
 
-     ;; (gnus-cite-1 ((t (:inherit message-cited-text))))
      `(gnus-cite-1 ((t (:foreground ,zenburn-blue))))
      `(gnus-cite-2 ((t (:foreground ,zenburn-blue-1))))
      `(gnus-cite-3 ((t (:foreground ,zenburn-blue-2))))
-;;      (gnus-cite-4 ((t (:foreground ,zenburn-blue-3))))
-;;      (gnus-cite-5 ((t (:foreground ,zenburn-blue-4))))
-;;      (gnus-cite-6 ((t (:foreground ,zenburn-red-4))))
-;;      (gnus-cite-5 ((t (:foreground ,zenburn-red-3))))
      `(gnus-cite-4 ((t (:foreground ,zenburn-green+2))))
      `(gnus-cite-5 ((t (:foreground ,zenburn-green+1))))
      `(gnus-cite-6 ((t (:foreground ,zenburn-green))))
@@ -668,7 +645,6 @@ static char *gnus-pointer[] = {
 
      '(help-argument-name ((t (:weight bold))))
 
-     ;; See also the variable definitions at the top of this file
      '(imaxima-latex-error ((t (:inherit font-lock-warning))))
 
      `(info-xref ((t (:foreground ,zenburn-yellow :weight bold))))
@@ -735,10 +711,6 @@ static char *gnus-pointer[] = {
 
      '(makefile-space ((t (:inherit font-lock-warning))))
      '(makefile-shell ((t (nil))))
-     ;; This does not work very well because everything that's highlighted
-     ;; inside the shell region will get its own box.
-     ;; (makefile-shell ((t (:background "#4f4f4f"
-     ;;                           :box (:line-width 2 :color "#4f4f4f")))))
 
      '(nxml-delimited-data ((t (:inherit font-lock-string))))
      '(nxml-name ((t (:inherit zenburn-primary-1))))
@@ -1126,7 +1098,6 @@ static char *gnus-pointer[] = {
        org-agenda-structure-face
        org-archived-face
        org-column-face
-       ;org-checkbox-face
        org-date-face
        org-deadline-announce-face
        org-done-face
@@ -1142,7 +1113,6 @@ static char *gnus-pointer[] = {
        org-level-7-face
        org-level-8-face
        org-link-face
-       ;org-priority-face
        org-scheduled-face
        org-scheduled-previously-face
        org-scheduled-today-face
@@ -1220,11 +1190,4 @@ static char *gnus-pointer[] = {
 (defalias 'zenburn #'color-theme-zenburn)
 
 (provide 'zenburn)
-
-;; Local Variables:
-;; time-stamp-format: "%:y-%02m-%02d %02H:%02M"
-;; time-stamp-start: "Updated: "
-;; time-stamp-end: "$"
-;; End:
-
 ;;; zenburn.el ends here.
