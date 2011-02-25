@@ -147,7 +147,6 @@ to values."
               (list (propertize "%12b" 'face
                                 (list :weight 'bold
                                       :foreground zenburn-yellow))))
-(setq-default mode-line-frame-identification "")
 (setq-default erc-mode-line-format
               (concat (propertize "%t" 'face
                                   (list :weight 'bold
