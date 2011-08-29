@@ -422,8 +422,9 @@
      '(eshell-ls-special ((t (:inherit zenburn-primary-1))))
      `(eshell-ls-symlink ((t (:foreground ,zenburn-cyan :weight bold))))
 
-     '(elscreen-tab-current-screen
-       ((t (:inherit (zenburn-blue default)))))
+     `(elscreen-tab-current-screen
+       ((t (:inherit (zenburn-blue default) 
+            :box (:line-width 2 :style released-button)))))
      '(elscreen-tab-other-screen
        ((t (:inherit (zenburn-blue-4 zenburn-highlight-damp)))))
      `(elscreen-tab-background
