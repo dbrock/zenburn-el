@@ -426,7 +426,7 @@
        ((t (:inherit (zenburn-blue default) 
             :box (:line-width 2 :style released-button)))))
      '(elscreen-tab-other-screen
-       ((t (:inherit (zenburn-blue-4 zenburn-highlight-damp)))))
+       ((t (:inherit (zenburn-blue-3 zenburn-highlight-damp)))))
      `(elscreen-tab-background
        ((t (:foreground ,zenburn-bg-1 :background ,zenburn-bg-1))))
      
