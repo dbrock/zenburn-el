@@ -423,9 +423,11 @@
      `(eshell-ls-symlink ((t (:foreground ,zenburn-cyan :weight bold))))
 
      '(elscreen-tab-current-screen
-       ((t (:inherit zenburn-primary-1))))
-     `(elscreen-tab-other-screen
-       ((t (:foreground ,zenburn-yellow :background ,zenburn-green))))
+       ((t (:inherit (zenburn-blue default)))))
+     '(elscreen-tab-other-screen
+       ((t (:inherit (zenburn-blue-4 zenburn-highlight-damp)))))
+     `(elscreen-tab-background
+       ((t (:foreground ,zenburn-bg-1 :background ,zenburn-bg-1))))
      
      '(flyspell-duplicate ((t (:inherit zenburn-primary-1))))
      '(flyspell-incorrect ((t (:inherit zenburn-primary-2))))
@@ -843,6 +845,7 @@
        diff-refine-change-face
        elscreen-tab-current-screen-face
        elscreen-tab-other-screen-face
+       elscreen-tab-background-face
        emms-pbi-current-face
        emms-pbi-mark-marked-face
        emms-pbi-song-face
