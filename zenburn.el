@@ -277,9 +277,6 @@
      `(isearch-lazy-highlight
        ((t (:foreground ,zenburn-fg :background "#1e2320" :weight normal))))
 
-     '(mtorus-highlight ((t (:inherit zenburn-highlight-bluish))))
-     '(mtorus-notify-highlight ((t (:inherit zenburn-primary-1))))
-
      '(which-func ((t (:inherit mode-line))))
 
      '(apt-utils-normal-package
